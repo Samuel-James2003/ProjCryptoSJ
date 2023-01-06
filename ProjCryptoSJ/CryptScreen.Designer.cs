@@ -169,7 +169,7 @@ namespace ProjCryptoSJ
             this.Controls.Add(this.btnDecryptPerso);
             this.Controls.Add(this.btnCryptPerso);
             this.Name = "CryptScreen";
-            this.Text = "Form1";
+            this.Text = "Encrypt & Decrypt";
             this.ResumeLayout(false);
             this.PerformLayout();
 

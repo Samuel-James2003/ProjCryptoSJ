@@ -53,6 +53,7 @@
       <DependentUpon>CryptScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="DotNET.cs" />
+    <Compile Include="Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CryptScreen.resx">

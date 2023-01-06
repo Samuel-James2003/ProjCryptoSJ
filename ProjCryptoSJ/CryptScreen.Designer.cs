@@ -54,6 +54,7 @@ namespace ProjCryptoSJ
             // 
             // btnDecryptPerso
             // 
+            this.btnDecryptPerso.Enabled = false;
             this.btnDecryptPerso.Location = new System.Drawing.Point(85, 435);
             this.btnDecryptPerso.Name = "btnDecryptPerso";
             this.btnDecryptPerso.Size = new System.Drawing.Size(204, 102);
@@ -141,15 +142,18 @@ namespace ProjCryptoSJ
             this.btnCryptNet.TabIndex = 12;
             this.btnCryptNet.Text = "Cryptage .NET";
             this.btnCryptNet.UseVisualStyleBackColor = true;
+            this.btnCryptNet.Click += new System.EventHandler(this.btnCryptNet_Click);
             // 
             // btnDecryptNet
             // 
+            this.btnDecryptNet.Enabled = false;
             this.btnDecryptNet.Location = new System.Drawing.Point(1083, 435);
             this.btnDecryptNet.Name = "btnDecryptNet";
             this.btnDecryptNet.Size = new System.Drawing.Size(204, 102);
             this.btnDecryptNet.TabIndex = 13;
             this.btnDecryptNet.Text = "Décryptage .NET";
             this.btnDecryptNet.UseVisualStyleBackColor = true;
+            this.btnDecryptNet.Click += new System.EventHandler(this.btnDecryptNet_Click);
             // 
             // CryptScreen
             // 

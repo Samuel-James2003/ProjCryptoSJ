@@ -1,7 +1,7 @@
 ﻿
 namespace ProjCryptoSJ
 {
-    partial class Form1
+    partial class CryptScreen
     {
         /// <summary>
         /// Required designer variable.

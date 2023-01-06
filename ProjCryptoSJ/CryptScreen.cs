@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjCryptoSJ
 {
-    public partial class Form1 : Form
+    public partial class CryptScreen : Form
     {
-        public Form1()
+        public CryptScreen()
         {
             InitializeComponent();
         }

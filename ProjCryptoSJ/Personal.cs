@@ -11,6 +11,11 @@ namespace ProjCryptoSJ
 
         private string key, crypt;
 
+        public string Key
+        {
+            get { return key; }
+        }
+
         public Personal(string crypt)
         {
             this.crypt = crypt;

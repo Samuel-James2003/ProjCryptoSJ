@@ -16,14 +16,34 @@ namespace ProjCryptoSJ
     {
         // Objet permettant de chiffrer et de déchiffrer des chaînes de caractères en utilisant l'algorithme 3DES
         private DotNET dot;
+        private Personal pers;
 
         // Tableaux de bytes représentant le texte chiffré, le vecteur d'initialisation et la clé de chiffrement
         private byte[] cryptedTextAsByte, iv, key;
+
+        private string encrypt;
 
         // Constructeur initialisant les composants de l'interface utilisateur
         public CryptScreen()
         {
             InitializeComponent();
+        }
+
+        private void btnCryptPerso_Click(object sender, EventArgs e)
+        {
+            pers = new Personal(txtInput.Text);
+
+            txtKey.Text = pers.Key;
+
+            encrypt = txtOutput.Text = pers.Encrypt();
+
+            btnDecryptPerso.Enabled = true;
+
+        }
+
+        private void btnDecryptPerso_Click(object sender, EventArgs e)
+        {
+            txtReturn.Text = pers.Decrypt(encrypt);
         }
 
         // Méthode exécutée lorsque l'utilisateur clique sur le bouton de chiffrement

@@ -51,6 +51,7 @@ namespace ProjCryptoSJ
             this.btnCryptPerso.TabIndex = 0;
             this.btnCryptPerso.Text = "Cryptage perosnnel";
             this.btnCryptPerso.UseVisualStyleBackColor = true;
+            this.btnCryptPerso.Click += new System.EventHandler(this.btnCryptPerso_Click);
             // 
             // btnDecryptPerso
             // 
@@ -61,6 +62,7 @@ namespace ProjCryptoSJ
             this.btnDecryptPerso.TabIndex = 1;
             this.btnDecryptPerso.Text = "Décryptage perosnnel";
             this.btnDecryptPerso.UseVisualStyleBackColor = true;
+            this.btnDecryptPerso.Click += new System.EventHandler(this.btnDecryptPerso_Click);
             // 
             // txtInput
             // 

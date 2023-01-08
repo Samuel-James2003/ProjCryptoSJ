@@ -29,6 +29,7 @@ namespace ProjCryptoSJ
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CryptScreen));
             this.btnCryptPerso = new System.Windows.Forms.Button();
             this.btnDecryptPerso = new System.Windows.Forms.Button();
             this.txtInput = new System.Windows.Forms.TextBox();
@@ -161,7 +162,9 @@ namespace ProjCryptoSJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 896);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1404, 961);
             this.Controls.Add(this.btnDecryptNet);
             this.Controls.Add(this.btnCryptNet);
             this.Controls.Add(this.txtDecrypted);

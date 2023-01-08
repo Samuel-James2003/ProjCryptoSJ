@@ -8,69 +8,60 @@ namespace ProjCryptoSJ
 {
     class Personal
     {
-        
+
         private string key, crypt;
 
         public Personal(string crypt)
         {
             this.crypt = crypt;
-            // Generate a random number between 1000 and 9999 and concatenate it to the key
+            // Generate a random number between 5 and 10 and concatenate it to the key
             var random = new Random();
-            key += random.Next(1000, 10000).ToString();
-
+            key += random.Next(5, 10).ToString();
+            key += random.Next(100, 1000).ToString();
+            // Generate a random number between 1 and 128, convert it to an ASCII character, and concatenate it to the key
+            key += (char)random.Next(1, 128);
             // Generate a random number between 1 and 128, convert it to an ASCII character, and concatenate it to the key
             key += (char)random.Next(1, 128);
 
-            // Generate a random number between 100 and 1000 and concatenate it to the key
-            key += random.Next(100, 1000).ToString();
-            
         }
 
         public string Encrypt()
         {
             var sb = new StringBuilder();
-            int multiplyer = int.Parse(key.Substring(0, 4)), offset = int.Parse(key.Substring(4, 1));
-            string salt = key.Substring(5);
-            
+            int offset = key[0];
+            string salt = key.Substring(4);
 
-            string mid = crypt.Substring(0,crypt.Length / 2);
-            foreach (char item in mid)
+            foreach (char item in crypt)
             {
-                sb.Append(item * multiplyer);
+                try
+                {
+                    sb.Append((char)(item + offset));
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error: Value is too large.");
+                }
+
+
             }
 
-            sb.Append(crypt.Substring(crypt.Length / 2));
-            for (int i = 0; i < salt.Length; i += 2)
-            {
-                int num1 = int.Parse(salt[i].ToString());
-                int num2 = int.Parse(salt[i + 1].ToString());
-                char c = (num1 + num2 + offset < 128) ? (char)(num1 + num2 + offset) : (char)num1;
-                sb.Append(c);
-            }
+            sb.Append(salt);
             return sb.ToString();
-            
+
         }
-        public string Decrypt()
+        public string Decrypt(string encrypted)
         {
             var sb = new StringBuilder();
-            int multiplyer = int.Parse(key.Substring(0, 4)), offset = int.Parse(key.Substring(4, 1));
-            string salt = key.Substring(5);
-
-            string mid = crypt.Substring(0, crypt.Length / 2);
-            int midLength = mid.Length;
-            for (int i = 0; i < midLength; i++)
+            int offset = key[0];
+            // Process the entire encrypted string
+            for (int i = 0; i < encrypted.Length; i++)
             {
-                sb.Append(mid[i] / multiplyer);
+                // Divide the character by the multiplier
+                sb.Append((char)(encrypted[i] - offset));
             }
 
-            sb.Append(crypt.Substring(crypt.Length / 2));
-            for (int i = 0; i < salt.Length; i += 2)
-            {
-                int num1 = int.Parse(salt[i].ToString());
-                int num2 = int.Parse(salt[i + 1].ToString());
-                char c = (num1 + num2 + offset < 128) ? (char)(num1 + num2 + offset) : (char)num1;
-                sb.Append((char)(c - offset));
-            }
+
+            sb.Remove(encrypted.Length - 2, 2);
             return sb.ToString();
         }
 
